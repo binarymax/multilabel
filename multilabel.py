@@ -1,6 +1,6 @@
 import numpy as np
 
-class MultiLabel():
+class MultiLabel:
 	def __init__(self):
 		self.labels = {}
 		self.lookup = []
@@ -20,7 +20,8 @@ class MultiLabel():
 
 	def combine(self,labels):
 		combined = np.zeros(self.idx)
-		for label in labels:
-			i = self.labels[label]
-			combined = combined + self.categorical[i]
+		if self.idx>0:
+			for label in labels:
+				i = self.labels[label]
+				combined = combined + self.categorical[i]
 		return combined
